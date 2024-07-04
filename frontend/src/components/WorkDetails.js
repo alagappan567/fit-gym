@@ -1,3 +1,4 @@
+import React from "react";
 import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
 import { useAuthContext } from "../hooks/useAuthContext";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
@@ -37,7 +38,7 @@ const WorkDetails = ({ workout }) => {
     }
   };
 
-  const formattedDate = format(new Date(workout.date), "MMMM dd, yyyy");
+  const formattedDate = format(new Date(workout.date), "dd-MMMM-yyyy");
 
   return (
     <div className="workout-details">
@@ -51,6 +52,11 @@ const WorkDetails = ({ workout }) => {
       <p>
         <strong>Date:</strong> {formattedDate}
       </p>
+      {workout.caloriesBurned !== undefined && (
+        <p>
+          <strong>Calories Burned:</strong> {workout.caloriesBurned} Kcal
+        </p>
+      )}
       <p>
         Created{" "}
         {formatDistanceToNow(new Date(workout.createdAt), { addSuffix: true })}

@@ -10,16 +10,18 @@ const Navbar = () => {
   return (
     <header>
       <div className="container">
-        <Link to="/">
-          <button className="home-btn">Home</button>
-        </Link>
         <nav>
           {user && (
             <div>
+              <Link to="/">
+                <button className="home-btn">Home</button>
+              </Link>
               <Link to="/history">
                 <button className="history-btn">History</button>
               </Link>
-              <button className="logout-btn" onClick={handleClick}>Log out</button>
+              <button className="logout-btn" onClick={handleClick}>
+                Log out
+              </button>
               <span>{user.email}</span>
             </div>
           )}

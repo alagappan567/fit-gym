@@ -93,10 +93,35 @@ const updateWorkout = async (req, res) => {
   res.status(200).json(workout);
 };
 
+//helper function if calories burned is not available in db
+const calculateCaloriesBurned = (workoutType, duration, intensity) => {
+  const baseCaloriesPerMinute = {
+    Running: 10,
+    Jogging: 8,
+    Swimming: 7,
+    Cycling: 6,
+    Yoga: 3,
+    Weightlifting: 5,
+  };
+
+  const intensityMultiplier = {
+    1: 0.75,
+    2: 1.0,
+    3: 1.25,
+  };
+
+  const baseCalories = baseCaloriesPerMinute[workoutType] || 5;
+  const multiplier = intensityMultiplier[intensity];
+
+  return baseCalories * duration * multiplier;
+};
+
+
 module.exports = {
   getWorkout,
   getWorkouts,
   createWorkout,
   deleteWorkout,
   updateWorkout,
+  calculateCaloriesBurned,
 };

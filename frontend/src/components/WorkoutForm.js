@@ -17,6 +17,7 @@ const WorkoutForm = () => {
   const [error, setError] = useState(null);
   const [emptyFields, setEmptyFields] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [caloriesBurned, setCaloriesBurned] = useState(0); // State for calories burned
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -62,9 +63,45 @@ const WorkoutForm = () => {
       setDate(new Date().toISOString().slice(0, 10)); // Reset date to current date
       setError(null);
       setEmptyFields([]);
-      dispatch({ type: "CREATE_WORKOUT", payload: json });
+      
+      // Calculate calories burned
+      const calculatedCalories = calculateCaloriesBurned(
+        workoutType,
+        totalMinutes,
+        intensity
+      );
+      setCaloriesBurned(calculatedCalories); // Set the calculated calories
+      
+      // Store workout with calories burned
+      const workoutWithCalories = { ...json, caloriesBurned: calculatedCalories };
+
+      dispatch({ type: "CREATE_WORKOUT", payload: workoutWithCalories });
+
       setIsModalOpen(true);
     }
+  };
+
+  const calculateCaloriesBurned = (workoutType, duration, intensity) => {
+    // Simple estimation based on workout type, duration (in minutes), and intensity
+    const baseCaloriesPerMinute = {
+      Running: 10,
+      Jogging: 8,
+      Swimming: 7,
+      Cycling: 6,
+      Yoga: 3,
+      Weightlifting: 5,
+    };
+
+    const intensityMultiplier = {
+      1: 0.75, // Slow
+      2: 1.0, // Medium
+      3: 1.25, // Intense
+    };
+
+    const baseCalories = baseCaloriesPerMinute[workoutType] || 5;
+    const multiplier = intensityMultiplier[intensity];
+
+    return baseCalories * duration * multiplier;
   };
 
   const getLabel = (value) => {
@@ -137,7 +174,10 @@ const WorkoutForm = () => {
         overlayClassName="overlay"
       >
         <h2>Success</h2>
-        <p>Your workout has been recorded</p>
+        <p>
+          Your workout has been recorded. You burned approximately{" "}
+          {caloriesBurned} calories.
+        </p>
         <button onClick={closeModal}>OK</button>
       </Modal>
     </div>
