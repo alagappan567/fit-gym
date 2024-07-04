@@ -1,11 +1,32 @@
-import React from "react";
-import WorkDetails from "./WorkDetails";
+import React, { useEffect } from "react";
 import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
 import { useAuthContext } from "../hooks/useAuthContext";
+import WorkDetails from "./WorkDetails";
 
 const History = () => {
-  const { workouts } = useWorkoutsContext(); // Only need workouts, not dispatch
+  const { workouts, dispatch } = useWorkoutsContext();
   const { user } = useAuthContext();
+
+  useEffect(() => {
+    const fetchWorkouts = async () => {
+      if (!user) {
+        return;
+      }
+
+      const response = await fetch("/api/workouts", {
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
+      });
+      const json = await response.json();
+
+      if (response.ok) {
+        dispatch({ type: "SET_WORKOUTS", payload: json });
+      }
+    };
+
+    fetchWorkouts();
+  }, [dispatch, user]);
 
   return (
     <div className="history">

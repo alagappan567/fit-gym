@@ -52,11 +52,9 @@ const WorkDetails = ({ workout }) => {
       <p>
         <strong>Date:</strong> {formattedDate}
       </p>
-      {workout.caloriesBurned !== undefined && (
-        <p>
-          <strong>Calories Burned:</strong> {workout.caloriesBurned} Kcal
-        </p>
-      )}
+      <p>
+        <strong>Calories Burned:</strong> {workout.caloriesBurned || "N/A"} Kcal🔥
+      </p>
       <p>
         Created{" "}
         {formatDistanceToNow(new Date(workout.createdAt), { addSuffix: true })}

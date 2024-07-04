@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+
 const workoutSchema = new Schema(
   {
     workoutType: {
@@ -29,6 +30,5 @@ const workoutSchema = new Schema(
   },
   { timestamps: true }
 );
-module.exports = mongoose.model("Workout", workoutSchema); //creating a model and exporting
-// a schema defines a structure of a particular document or type of document inside our database
-// a model applies that schema to a particular model and we use that model to interact with collection of that name
+
+module.exports = mongoose.model("Workout", workoutSchema);

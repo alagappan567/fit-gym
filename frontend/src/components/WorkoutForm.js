@@ -19,27 +19,41 @@ const WorkoutForm = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [caloriesBurned, setCaloriesBurned] = useState(0); // State for calories burned
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    console.log("Form values:", { workoutType, duration, intensity, date });
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    if (!user) {
-      setError("You must be logged in");
-      return;
-    }
+  if (!user) {
+    setError("You must be logged in");
+    return;
+  }
 
-    if (!workoutType || !duration || !intensity || !date) {
-      setEmptyFields(["workoutType", "duration", "intensity", "date"]);
-      setError("Please fill in all fields");
-      return;
-    }
+  if (!workoutType || !duration || !intensity || !date) {
+    setEmptyFields(["workoutType", "duration", "intensity", "date"]);
+    setError("Please fill in all fields");
+    return;
+  }
 
-    // Convert duration from "HH:MM" to total minutes
-    const [hours, minutes] = duration.split(":").map(Number);
-    const totalMinutes = hours * 60 + minutes;
+  // Convert duration from "HH:MM" to total minutes
+  const [hours, minutes] = duration.split(":").map(Number);
+  const totalMinutes = hours * 60 + minutes;
 
-    const workout = { workoutType, duration: totalMinutes, intensity, date };
+  // Calculate calories burned
+  const calculatedCalories = calculateCaloriesBurned(
+    workoutType,
+    totalMinutes,
+    intensity
+  );
 
+  const workout = {
+    workoutType,
+    duration: totalMinutes,
+    intensity,
+    date,
+    caloriesBurned: calculatedCalories, // Include calculated calories
+  };
+
+
+  try {
     const response = await fetch("/api/workouts", {
       method: "POST",
       body: JSON.stringify(workout),
@@ -54,32 +68,25 @@ const WorkoutForm = () => {
     if (!response.ok) {
       setError(json.error);
       setEmptyFields(json.emptyFields || []);
-    }
-
-    if (response.ok) {
+    } else {
       setWorkoutType("");
-      setDuration("");
+      setDuration("00:00");
       setIntensity(2); // Reset intensity to "Medium"
       setDate(new Date().toISOString().slice(0, 10)); // Reset date to current date
       setError(null);
       setEmptyFields([]);
-      
-      // Calculate calories burned
-      const calculatedCalories = calculateCaloriesBurned(
-        workoutType,
-        totalMinutes,
-        intensity
-      );
-      setCaloriesBurned(calculatedCalories); // Set the calculated calories
-      
-      // Store workout with calories burned
-      const workoutWithCalories = { ...json, caloriesBurned: calculatedCalories };
 
-      dispatch({ type: "CREATE_WORKOUT", payload: workoutWithCalories });
+      setCaloriesBurned(calculatedCalories); // Set the calculated calories
+
+      dispatch({ type: "CREATE_WORKOUT", payload: json });
 
       setIsModalOpen(true);
     }
-  };
+  } catch (error) {
+    console.error("Error submitting the workout:", error);
+    setError("An error occurred while submitting the workout");
+  }
+};
 
   const calculateCaloriesBurned = (workoutType, duration, intensity) => {
     // Simple estimation based on workout type, duration (in minutes), and intensity
@@ -172,6 +179,7 @@ const WorkoutForm = () => {
         contentLabel="Workout Recorded"
         className="modal"
         overlayClassName="overlay"
+        onChange={(e) => setCaloriesBurned(caloriesBurned)}
       >
         <h2>Success</h2>
         <p>
