@@ -11,13 +11,16 @@ const Navbar = () => {
     <header>
       <div className="container">
         <Link to="/">
-          <h1>fitAmigo</h1>
+          <button className="home-btn">Home</button>
         </Link>
         <nav>
           {user && (
             <div>
+              <Link to="/history">
+                <button className="history-btn">History</button>
+              </Link>
+              <button className="logout-btn" onClick={handleClick}>Log out</button>
               <span>{user.email}</span>
-              <button onClick={handleClick}>Log out</button>
             </div>
           )}
           {!user && (

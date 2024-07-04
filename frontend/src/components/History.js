@@ -1,17 +1,9 @@
 import { useEffect } from "react";
-import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
 import { useAuthContext } from "../hooks/useAuthContext";
+import WorkDetails from "./WorkDetails";
+import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
 
-// const URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=${units}`;
-//   const data = await fetch(URL)
-//     .then((res) => res.json())
-//     .then((data) => data);
-
-//components
-import WorkoutForm from "../components/WorkoutForm";
-import WorkDetails from "../components/WorkDetails";
-
-const Home = () => {
+const History = () => {
   const { workouts, dispatch } = useWorkoutsContext();
   const { user } = useAuthContext();
   // const [workouts, setworkouts] = useState(null);
@@ -34,10 +26,20 @@ const Home = () => {
     // fetchWorkouts();
   }, [dispatch, user]);
   return (
-    <div className="home">
-      <WorkoutForm />
+    <div className="history">
+      <h2>Your Workout Records</h2>
+      <div className="workouts">
+        {workouts && workouts.length > 0 ? (
+          workouts.map((workout) => (
+            <WorkDetails key={workout._id} workout={workout} />
+          ))
+        ) : (
+          <p className="no-history">No workout record available.</p>
+        )}
+      </div>
     </div>
   );
 };
 
-export default Home;
+
+export default History;

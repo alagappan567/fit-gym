@@ -47,7 +47,7 @@ header a {
 /* homepage */
 .home {
   display: grid;
-  grid-template-columns: 3fr 1fr;
+  grid-template-rows: 2fr 1fr;
   gap: 100px;
 }
 .workout-details {
@@ -138,3 +138,8 @@ form.signup, form.login {
   background: #fff;
   border-radius: 4px;
 }
+
+.create {
+  width: 600px;
+}
+

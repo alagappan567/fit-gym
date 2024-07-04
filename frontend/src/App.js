@@ -7,6 +7,9 @@ import Home from "./pages/Home";
 import Navbar from "./components/navbar";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import History from "./components/History";
+import "./workoutform.css";
+
 function App() {
   const { user } = useAuthContext();
   return (
@@ -26,6 +29,10 @@ function App() {
             <Route
               path="/signup"
               element={!user ? <Signup /> : <Navigate to="/" />}
+            ></Route>
+            <Route
+              path="/history"
+              element={user ? <History /> : <Navigate to="/login" />}
             ></Route>
           </Routes>
         </div>
