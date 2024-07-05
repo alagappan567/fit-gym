@@ -9,10 +9,10 @@ import { useAuthContext } from "../hooks/useAuthContext";
 
 //components
 import WorkoutForm from "../components/WorkoutForm";
-import WorkDetails from "../components/WorkDetails";
+
 
 const Home = () => {
-  const { workouts, dispatch } = useWorkoutsContext();
+  const { dispatch } = useWorkoutsContext();
   const { user } = useAuthContext();
   // const [workouts, setworkouts] = useState(null);
   useEffect(() => {

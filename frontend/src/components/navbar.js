@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useLogout } from "../hooks/useLogout";
 import { useAuthContext } from "../hooks/useAuthContext";
+import fitlogoIcon from "../assets/fitlogo.png"
 const Navbar = () => {
   const { logout } = useLogout();
   const { user } = useAuthContext();
@@ -10,6 +11,7 @@ const Navbar = () => {
   return (
     <header>
       <div className="container">
+        <img src={fitlogoIcon} alt="logo" className="logo"></img>
         <nav>
           {user && (
             <div>

@@ -3,6 +3,7 @@ import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
 import { useAuthContext } from "../hooks/useAuthContext";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import format from "date-fns/format";
+import { FaTrashAlt } from "react-icons/fa";
 
 const WorkDetails = ({ workout }) => {
   const { dispatch } = useWorkoutsContext();
@@ -42,26 +43,29 @@ const WorkDetails = ({ workout }) => {
 
   return (
     <div className="workout-details">
-      <h4>{workout.workoutType}</h4>
-      <p>
-        <strong>Duration:</strong> {workout.duration} minutes
-      </p>
-      <p>
-        <strong>Intensity:</strong> {getLabel(workout.intensity)}
-      </p>
-      <p>
-        <strong>Date:</strong> {formattedDate}
-      </p>
-      <p>
-        <strong>Calories Burned:</strong> {workout.caloriesBurned || "N/A"} Kcal🔥
-      </p>
-      <p>
+      <p id="created-at">
         Created{" "}
         {formatDistanceToNow(new Date(workout.createdAt), { addSuffix: true })}
       </p>
-      <span className="material-symbols-outlined" onClick={handleClick}>
-        delete
-      </span>
+      <div className="grid">
+        <p>
+          <h4>{workout.workoutType}</h4>
+        </p>
+        <p>
+          <strong>Duration:</strong> {workout.duration} minutes
+        </p>
+        <p>
+          <strong>Intensity:</strong> {getLabel(workout.intensity)}
+        </p>
+        <p>
+          <strong>Date:</strong> {formattedDate}
+        </p>
+        <p>
+          <strong>Calories Burned:</strong> {workout.caloriesBurned || "N/A"}{" "}
+          Kcal🔥
+        </p>
+        <FaTrashAlt onClick={handleClick} />
+      </div>
     </div>
   );
 };

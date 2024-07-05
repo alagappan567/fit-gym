@@ -45,19 +45,32 @@ header a {
   margin: 0 auto;
 }
 /* homepage */
-.home {
-  display: grid;
-  grid-template-rows: 2fr 1fr;
-  gap: 100px;
-}
+
 .workout-details {
-  background: #fff;
-  border-radius: 4px;
+  background: #ffffff;
+  border-radius: 20px;
   margin: 20px auto;
   padding: 20px;
   position: relative;
   box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+  border-style: solid;
+  border-color: white;
+  justify-content: space-between;
 }
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 0.3fr;
+  gap: 5px;
+  width: 1300px;
+}
+
+#created-at{
+display: block;
+margin: 0 0 10px 0;
+color: #1aac83;
+font-size: 15px;
+}
+
 .workout-details h4 {
   margin: 0 0 10px 0;
   font-size: 1.2em;
@@ -143,3 +156,21 @@ form.signup, form.login {
   width: 600px;
 }
 
+.logo {
+  width: 350px;
+}
+
+svg {
+  position: absolute;
+  right: 5%;
+  bottom: 13%;
+  cursor: pointer;
+  padding: 6px;
+  height: 50px;
+  width: 30px;
+  color: #414141;
+}
+
+svg:hover {
+  color: rgb(235, 27, 27);
+}

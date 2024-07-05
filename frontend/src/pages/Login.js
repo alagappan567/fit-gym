@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useLogin } from "../hooks/useLogin";
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -28,6 +29,9 @@ const Login = () => {
         value={password}
       ></input>
       <button disabled={isLoading}>Log in</button>
+      <div className="not-signup">
+        Didn't have an account? <Link to="/signup">Signup</Link>
+      </div>
       {error && <div className="error">{error}</div>}
     </form>
   );

@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
 import { useAuthContext } from "../hooks/useAuthContext";
 import WorkDetails from "./WorkDetails";
+import "../index.css"
 
 const History = () => {
   const { workouts, dispatch } = useWorkoutsContext();
