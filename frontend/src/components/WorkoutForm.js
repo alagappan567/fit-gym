@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
 import { useAuthContext } from "../hooks/useAuthContext";
 import Modal from "react-modal";
-import "../workoutform.css"; // Import the CSS file
+import "./workoutform.css"; // Import the CSS file
 
 Modal.setAppElement("#root"); // Necessary for accessibility
 
@@ -129,8 +129,8 @@ const handleSubmit = async (e) => {
   };
 
   return (
-    <div>
-      <form className="create" onSubmit={handleSubmit}>
+    <div className="work-form">
+      <form className="workoutForm" onSubmit={handleSubmit}>
         <h3>Add a new Workout</h3>
         <label>Workout type:</label>
         <select
@@ -170,7 +170,7 @@ const handleSubmit = async (e) => {
           value={date}
           className={emptyFields.includes("date") ? "error" : ""}
         />
-        <button>Add Workout</button>
+        <button className="addwork-btn">Add Workout</button>
         {error && <div className="error">{error}</div>}
       </form>
       <Modal
@@ -181,11 +181,8 @@ const handleSubmit = async (e) => {
         overlayClassName="overlay"
         onChange={(e) => setCaloriesBurned(caloriesBurned)}
       >
-        <h2>Success</h2>
-        <p>
-          Your workout has been recorded. You burned approximately{" "}
-          {caloriesBurned} calories.
-        </p>
+        <h2>Your workout has been recorded.</h2>
+        <p>You burned approximately {caloriesBurned} calories🔥</p>
         <button onClick={closeModal}>OK</button>
       </Modal>
     </div>

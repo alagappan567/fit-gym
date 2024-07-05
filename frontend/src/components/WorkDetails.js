@@ -4,6 +4,7 @@ import { useAuthContext } from "../hooks/useAuthContext";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import format from "date-fns/format";
 import { FaTrashAlt } from "react-icons/fa";
+import "./WorkDetails.css"
 
 const WorkDetails = ({ workout }) => {
   const { dispatch } = useWorkoutsContext();
@@ -64,7 +65,7 @@ const WorkDetails = ({ workout }) => {
           <strong>Calories Burned:</strong> {workout.caloriesBurned || "N/A"}{" "}
           Kcal🔥
         </p>
-        <FaTrashAlt onClick={handleClick} />
+        <FaTrashAlt className="delete-btn" onClick={handleClick} />
       </div>
     </div>
   );

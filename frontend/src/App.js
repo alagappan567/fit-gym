@@ -8,7 +8,6 @@ import Navbar from "./components/navbar";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import History from "./components/History";
-import "./workoutform.css";
 
 function App() {
   const { user } = useAuthContext();
@@ -16,7 +15,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Navbar />
-        <div className="pages">
+        <div >
           <Routes>
             <Route
               path="/"

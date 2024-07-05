@@ -1,0 +1,116 @@
+/* nav button {
+  background: #E97451;
+  color: white;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-family: "Poppins";
+  cursor: pointer;
+  font-size: 1em;
+  margin-left: 20px;
+  width: 100px;
+  height: 50px;
+  border-radius: 30px;
+  transition: box-shadow 0.15s;
+
+}
+
+button.logout-btn {
+  color: white;
+}
+button:hover {
+  background-color: white;
+  color: #E97451;
+  opacity: 0.7;
+  box-shadow: px 5px 10px rgba(255, 255, 255, 0.5);
+}
+
+button:active {
+    opacity: 0.6;
+    box-shadow: 0px 0px 0px rgba(255, 255, 255, 0.5);
+} */
+
+
+
+/* CSS */
+button {
+  background-color: #efcca6;
+  border: 2px solid #422800;
+  border-radius: 30px;
+  box-shadow: #422800 4px 4px 0 0;
+  color: #422800;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 0 18px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin-left: 10px;
+}
+
+.home-btn:hover {
+  background-color: #E97451;
+  color: white;
+}
+
+.history-btn:hover {
+  background-color: #E97451;
+  color: white;
+}
+.logout-btn:hover {
+  background-color: #E97451;
+  color: white;
+}
+
+.nav-login-btn:hover {
+  background-color: #E97451;
+  color: white;
+}
+
+.nav-signin-btn:hover {
+  background-color: #E97451;
+  color: white;
+}
+
+button:active {
+  box-shadow: #422800 2px 2px 0 0;
+  transform: translate(2px, 2px);
+}
+
+@media (min-width: 768px) {
+  button {
+    min-width: 120px;
+    padding: 0 25px;
+  }
+}
+
+.email {
+  margin: 10px;
+  color: #2aa9bf;
+  font-size: 20px;
+}
+
+div .navbar {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 320px;
+  margin-left: 30px;
+  margin-top: 7px;
+}
+
+.nav-btns {
+  display: inline-block;
+}
