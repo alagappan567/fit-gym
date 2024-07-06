@@ -4,7 +4,7 @@ import { useAuthContext } from "./hooks/useAuthContext";
 //Indivudual route component to create a single route
 //pages and componenets
 import Home from "./pages/Home";
-import Navbar from "./components/navbar";
+
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import History from "./components/History";
@@ -14,7 +14,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Navbar />
+
         <div >
           <Routes>
             <Route

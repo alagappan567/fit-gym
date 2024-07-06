@@ -4,6 +4,8 @@ import { useAuthContext } from "../hooks/useAuthContext";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import format from "date-fns/format";
 import { FaTrashAlt } from "react-icons/fa";
+import { FaRegCalendarAlt } from "react-icons/fa";
+import { FaClock } from "react-icons/fa";
 import "./WorkDetails.css"
 
 const WorkDetails = ({ workout }) => {
@@ -53,17 +55,16 @@ const WorkDetails = ({ workout }) => {
           <h4>{workout.workoutType}</h4>
         </p>
         <p>
-          <strong>Duration:</strong> {workout.duration} minutes
+          <strong><FaClock /> </strong> {workout.duration} minutes
         </p>
         <p>
           <strong>Intensity:</strong> {getLabel(workout.intensity)}
         </p>
         <p>
-          <strong>Date:</strong> {formattedDate}
+          <strong> <FaRegCalendarAlt /> </strong> {formattedDate}
         </p>
         <p>
-          <strong>Calories Burned:</strong> {workout.caloriesBurned || "N/A"}{" "}
-          Kcal🔥
+          <strong>Burned:</strong> {workout.caloriesBurned || "N/A"} Calories 🔥
         </p>
         <FaTrashAlt className="delete-btn" onClick={handleClick} />
       </div>

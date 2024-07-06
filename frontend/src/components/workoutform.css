@@ -31,31 +31,176 @@
   color: red;
 }
 
-
-.workoutForm {
-    display: block;
-    padding: 14.5px;
-    width: 40%;
-    margin: 2rem 0;
-    color: var(--color);
-    outline: none;
-    background-color: #9191911f;
-    border: none;
-    border-radius: 5px;
-    font-weight: 500;
-    letter-spacing: 0.8px;
-    font-size: 15px;
-    backdrop-filter: blur(15px);
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
-    position: relative;
-    left: 30%;
-}
-
-.addwork-btn
+#addwork-btn
 {
-  margin-left: 38%;
+  background-color: #efcca6;
+  border: 2px solid #422800;
+  border-radius: 30px;
+  box-shadow: #422800 4px 4px 0 0;
+  color: #422800;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 0 18px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin-left: 32%;
+  width: 200px;
+  margin-bottom: 0;
 }
+
+#addwork-btn:hover {
+  background-color: #E97451;
+  color: white;
+}
+
+#addwork-btn:active {
+  box-shadow: #422800 2px 2px 0 0;
+  transform: translate(2px, 2px);
+}
+
+.calorie {
+  color: #422800;
+  font-weight: 600;
+  margin: 0;
+}
+
+.ok-btn {
+  margin: 0;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: grabbing;
+  width: 15rem;
+}
+
+/* Removes default focus */
+input[type="range"]:focus {
+  outline: none;
+}
+
+/***** Chrome, Safari, Opera, and Edge Chromium styles *****/
+/* slider track */
+input[type="range"]::-webkit-slider-runnable-track {
+  background-color: #055289;
+  border-radius: 0.5rem;
+  height: 0.5rem;
+}
+
+/* slider thumb */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  margin-top: -12px; /* Centers thumb on the track */
+  /*custom styles*/
+  background-color: #eca3a3;
+  height: 2rem;
+  width: 1rem;
+  position: relative;
+}
+
+/******** Firefox styles ********/
+/* slider track */
+input[type="range"]::-moz-range-track {
+  background-color: #053a5f;
+  border-radius: 0.5rem;
+  height: 0.5rem;
+}
+
+/* slider thumb */
+input[type="range"]::-moz-range-thumb {
+  background-color: #eca3a3;
+  height: 2rem;
+  width: 1rem;
+  border: none;
+}
+
+/******** IE styles ********/
+/* slider track */
+input[type="range"]::-ms-track {
+  background-color: transparent;
+  border-color: transparent;
+  color: transparent;
+  height: 0.5rem;
+  width: 15rem;
+}
+
+/* slider thumb */
+input[type="range"]::-ms-thumb {
+  background-color: #eca3a3;
+  height: 2rem;
+  width: 1rem;
+  border: none;
+  margin-top: 0px; /* Centers thumb on the track */
+}
+
+input[type="range"]:focus::-ms-fill-lower {
+  background-color: #367ebd;
+}
+
+input[type="range"]:focus::-ms-fill-upper {
+  background-color: #367ebd;
+}
+
+
+.workbody {
+  margin-top: 0;
+  margin-left: 30%;
+}
+
+.work-container {
+    border: 1px solid hsla(0, 0%, 65%, 0.158);
+    box-shadow: 0 0 36px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    z-index: 99;
+    padding: 2rem;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    width: 600px;
+}
+
+#intensity {
+  background-color: #1a1a2e;
+  display: inline-block;
+  animation: none;
+  box-shadow: none;
+  padding: 0;
+  margin-top: 50px;
+}
+
+#date{
+  width: 160px;
+  background-color: #eca3a3;
+  font-weight: 600;
+  color: #422800;
+  cursor: pointer;
+  animation: none;
+}
+
+#duration{
+  width: 120px;
+  background-color: #eca3a3;
+  font-weight: 600;
+  color: #422800;
+  text-align: center;
+  animation: none;
+}
+
+.work-grid {
+  display: flex;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-around;
+}
+
+
 

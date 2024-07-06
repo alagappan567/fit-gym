@@ -15,7 +15,8 @@ const Navbar = () => {
         <img src={fitlogoIcon} alt="logo" className="logo"></img>
         <nav className="nav-btns">
           {user && (
-            <div className="nav-btns">
+          <div className="nav-btns">
+            <span className="username">{user.username}</span>
               <Link to="/">
                 <button className="home-btn">Home</button>
               </Link>
@@ -23,13 +24,6 @@ const Navbar = () => {
                 <button className="history-btn">History</button>
               </Link>
               <button className="logout-btn" onClick={handleClick}> Log out</button>
-              <span className="email">{user.email}</span>
-            </div>
-          )}
-          {!user && (
-            <div>
-              <Link to="/login"><button className="nav-login-btn">Login</button></Link>
-              <Link to="/signup"><button className="nav-signin-btn"> Signup </button></Link>
             </div>
           )}
         </nav>

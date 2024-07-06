@@ -3,6 +3,7 @@ import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
 import { useAuthContext } from "../hooks/useAuthContext";
 import WorkDetails from "./WorkDetails";
 import "../index.css"
+import Navbar from "./navbar";
 
 const History = () => {
   const { workouts, dispatch } = useWorkoutsContext();
@@ -30,16 +31,19 @@ const History = () => {
   }, [dispatch, user]);
 
   return (
-    <div className="history">
-      <h2>Your Workout Records</h2>
-      <div className="workouts">
-        {workouts && workouts.length > 0 ? (
-          workouts.map((workout) => (
-            <WorkDetails key={workout._id} workout={workout} />
-          ))
-        ) : (
-          <p className="no-history">No workout record available.</p>
-        )}
+    <div>
+      <Navbar/>
+      <div className="history">
+        <h2>Your Workout Records</h2>
+        <div className="workouts">
+          {workouts && workouts.length > 0 ? (
+            workouts.map((workout) => (
+              <WorkDetails key={workout._id} workout={workout} />
+            ))
+          ) : (
+            <p className="no-history">No workout record available.</p>
+          )}
+        </div>
       </div>
     </div>
   );
