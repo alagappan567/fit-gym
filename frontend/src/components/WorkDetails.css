@@ -1,60 +1,46 @@
 
 .workout-details {
-  background: #ffffff;
   border-radius: 20px;
   margin: 20px auto;
   padding: 20px;
   position: relative;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
-  border-style: solid;
-  border-color: white;
   justify-content: space-between;
+  display: grid;
+  background-color: #efcca6;
+  color: #422800;
+  font-weight: 600;
+  width: 1000px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
 }
 .grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 0.3fr;
-  gap: 5px;
-  width: 1300px;
+  grid-template-columns: 130px 160px 190px 180px 250px;
+  justify-content: center;
+  text-align: start;
 }
 
 #created-at{
 display: block;
 margin: 0 0 10px 0;
-color: #1aac83;
+color: #1a1a2e;
+font-weight: 400;
 font-size: 15px;
 }
 
-.workout-details h4 {
-  margin: 0 0 10px 0;
-  font-size: 1.2em;
-  color: var(--primary);
-}
-.workout-details p {
+p {
+  display: inline-block;
   margin: 0;
-  font-size: 0.9em;
-  color: #555;
-}
-.workout-details span {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  cursor: pointer;
-  background: #f1f1f1;
-  padding: 6px;
-  border-radius: 50%;
-  color: #333;
 }
 
 
 .delete-btn {
   position: absolute;
   right: 5%;
-  bottom: 13%;
+  bottom: 16%;
   cursor: pointer;
-  padding: 6px;
   height: 50px;
   width: 30px;
-  color: #414141;
+  color: #192A51;
 }
 
 .delete-btn:hover {

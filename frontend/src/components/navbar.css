@@ -28,11 +28,17 @@
   background-color: #E97451;
   color: white;
 }
-.logout-btn:hover {
-  background-color: #E97451;
-  color: white;
-}
 
+svg.logout {
+  width: 50px;
+  height: 50px;
+  color: #efcca6;
+  margin-left: 10px;
+  cursor: pointer;
+}
+svg.logout:hover {
+  color: #E97451;
+}
 
 button:active {
   box-shadow: #422800 2px 2px 0 0;
@@ -69,5 +75,7 @@ div .navbar {
 
 
 .nav-btns {
-  display: inline-block;
+  display: flex;
+  justify-content: center; 
+  align-items: center;
 }

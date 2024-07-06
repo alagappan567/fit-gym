@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
 import { useAuthContext } from "../hooks/useAuthContext";
 import WorkDetails from "./WorkDetails";
+import { Link } from "react-router-dom";
+import "./history.css"
 import "../index.css"
 import Navbar from "./navbar";
 
@@ -32,16 +34,23 @@ const History = () => {
 
   return (
     <div>
-      <Navbar/>
+      <Navbar />
       <div className="history">
-        <h2>Your Workout Records</h2>
+        <h1 className="opacity">Your Workout Records</h1>
         <div className="workouts">
           {workouts && workouts.length > 0 ? (
             workouts.map((workout) => (
               <WorkDetails key={workout._id} workout={workout} />
             ))
           ) : (
-            <p className="no-history">No workout record available.</p>
+            <div>
+              <p className="no-history">
+                You have no workout records.
+                <Link to="/" id="add">
+                  <button id="history-btn"> Click to add</button>
+                </Link>
+              </p>
+            </div>
           )}
         </div>
       </div>

@@ -52,7 +52,7 @@ const WorkDetails = ({ workout }) => {
       </p>
       <div className="grid">
         <p>
-          <h4>{workout.workoutType}</h4>
+          <strong>{workout.workoutType}</strong>
         </p>
         <p>
           <strong><FaClock /> </strong> {workout.duration} minutes

@@ -138,50 +138,58 @@ const WorkoutForm = () => {
               <div className="workoutForm">
                 <form className="work-container" onSubmit={handleSubmit}>
                   <h1 className="opacity">Add your workout</h1>
-                  <label>Workout type:</label>
-                  <select
-                    onChange={(e) => setWorkoutType(e.target.value)}
-                    value={workoutType}
-                    className={
-                      emptyFields.includes("workoutType") ? "error" : ""
-                    }
-                    id="worktype"
-                  >
-                    <option value="">Select workout type</option>
-                    <option value="Running">Running</option>
-                    <option value="Jogging">Jogging</option>
-                    <option value="Swimming">Swimming</option>
-                    <option value="Cycling">Cycling</option>
-                    <option value="Yoga">Yoga</option>
-                    <option value="Weightlifting">Weightlifting</option>
-                  </select>
-                  <label>Duration (HH:MM) </label>
-                  <input
-                    id="duration"
-                    type="time"
-                    onChange={(e) => setDuration(e.target.value)}
-                    value={duration}
-                    className={emptyFields.includes("duration") ? "error" : ""}
-                  />
-                  <label>Intensity</label>
                   <div className="work-grid">
-                    <div style={{ position: "relative", width: "15rem" }}>
-                      <input
-                        type="range"
-                        min="1"
-                        max="3"
-                        step="1"
-                        onChange={(e) => setIntensity(Number(e.target.value))}
-                        value={intensity}
-                        className={
-                          emptyFields.includes("intensity") ? "error" : ""
-                        }
-                        id="intensity"
-                        style={{ width: "100%" }}
-                      />
-                      <div
-                        className="intensity-label"
-                        style={{
+                    <div>
+                      <label className="opacity">Workout type</label>
+                      <select
+                        onChange={(e) => setWorkoutType(e.target.value)}
+                        value={workoutType}
+                        id="worktype"
+                        className="box"
+                      >
+                        <option value="">Select workout type</option>
+                        <option value="Running">Running</option>
+                        <option value="Jogging">Jogging</option>
+                        <option value="Swimming">Swimming</option>
+                        <option value="Cycling">Cycling</option>
+                        <option value="Yoga">Yoga</option>
+                        <option value="Weightlifting">Weightlifting</option>
+                      </select>
+                    </div>
+                      <div>
+                        <label className="opacity">Duration (HH:MM) </label>
+                        <input
+                          id="duration"
+                          type="time"
+                          onChange={(e) => setDuration(e.target.value)}
+                          value={duration}
+                          className={
+                            emptyFields.includes("duration") ? "error" : ""
+                          }
+                        />
+                      </div>
+                  </div>
+
+                  <div className="work-grid">
+                    <div>
+                      <label className="opacity">Intensity</label>
+                      <div style={{ position: "relative", width: "15rem" }}>
+                        <input
+                          type="range"
+                          min="1"
+                          max="3"
+                          step="1"
+                          onChange={(e) => setIntensity(Number(e.target.value))}
+                          value={intensity}
+                          className={
+                            emptyFields.includes("intensity") ? "error" : ""
+                          }
+                          id="intensity"
+                          style={{ width: "100%" }}
+                        />
+                        <div
+                          className="intensity-label"
+                          style={{
                             position: "absolute",
                             top: "70px",
                             left: `${((intensity - 1) / 2) * 100}%`,
@@ -189,20 +197,24 @@ const WorkoutForm = () => {
                             color: "white",
                             background: "none",
                             textAlign: "center",
-                        }}
-                      >
-                        {getLabel(intensity)}
+                          }}
+                        >
+                          {getLabel(intensity)}
+                        </div>
                       </div>
                     </div>
-                    <input
-                      type="date"
-                      onChange={(e) => setDate(e.target.value)}
-                      value={date}
-                      className={emptyFields.includes("date") ? "error" : ""}
-                      id="date"
-                    />
+                    <div>
+                      <label className="opacity">Date</label>
+                      <input
+                        type="date"
+                        onChange={(e) => setDate(e.target.value)}
+                        value={date}
+                        className={emptyFields.includes("date") ? "error" : ""}
+                        id="date"
+                      />
+                    </div>
                   </div>
-                  <button id="addwork-btn">Add Workout</button>
+                  <button id="addwork-btn">&#43; Add Workout</button>
                   {error && <div className="error">{error}</div>}
                 </form>
               </div>
@@ -218,8 +230,13 @@ const WorkoutForm = () => {
           onChange={(e) => setCaloriesBurned(caloriesBurned)}
         >
           <h2>Your workout has been recorded.</h2>
-          <p>You burned approximately {caloriesBurned} calories🔥</p>
-          <button onClick={closeModal}>OK</button>
+          <p>
+            You burned approximately{" "}
+            <p className="calorie">{caloriesBurned} calories🔥</p>
+          </p>
+          <button className="ok-btn" onClick={closeModal}>
+            OK
+          </button>
         </Modal>
       </div>
     </div>
