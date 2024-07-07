@@ -63,18 +63,21 @@ div.welcome {
 .login-container {
     position: relative;
     width: 22.2rem;
+        margin-left: 10%;
 }
 .form-container {
+  position: relative; /* Ensuring z-index works */
     border: 1px solid hsla(0, 0%, 65%, 0.158);
     box-shadow: 0 0 36px 1px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     backdrop-filter: blur(20px);
-    z-index: 99;
+    z-index: 3;
     padding: 2rem;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
+    
 }
 
 .login-container form input {
@@ -139,8 +142,8 @@ div.welcome {
 }
 
 .circle {
-    width: 8rem;
-    height: 8rem;
+    width: 7rem;
+    height: 7rem;
     background: var(--primary-color);
     border-radius: 50%;
     -webkit-border-radius: 50%;
@@ -153,14 +156,27 @@ div.welcome {
 .circle-one {
     top: 0;
     left: 0;
-    z-index: -1;
+    z-index: 2;
+    transform: translate(-45%, -45%);
+    -webkit-transform: translate(-45%, -45%);
+    -moz-transform: translate(-45%, -45%);
+    -ms-transform: translate(-45%, -45%);
+    -o-transform: translate(-45%, -45%);
 }
 
 .circle-two {
     bottom: 0;
     right: 0;
-    z-index: -1;
+    z-index: 2;
+    transform: translate(45%, 45%);
+    -webkit-transform: translate(45%, 45%);
+    -moz-transform: translate(45%, 45%);
+    -ms-transform: translate(45%, 45%);
+    -o-transform: translate(45%, 45%);
+}
 
+#back{
+    text-decoration: none;
 }
 
 .illustration {

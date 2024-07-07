@@ -133,7 +133,7 @@ const WorkoutForm = () => {
       <Navbar />
       <div className="work-form">
         <div className="workbody">
-          <div className="body">
+          <div className="body" id="work-body">
             <div className="login-container">
               <div className="workoutForm">
                 <form className="work-container" onSubmit={handleSubmit}>

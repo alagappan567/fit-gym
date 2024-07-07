@@ -11,7 +11,6 @@
   font-size: 18px;
   padding: 0 18px;
   line-height: 50px;
-  text-align: center;
   text-decoration: none;
   user-select: none;
   -webkit-user-select: none;
@@ -19,25 +18,36 @@
   margin-left: 10px;
 }
 
-.home-btn:hover {
-  background-color: #E97451;
-  color: white;
-}
 
-.history-btn:hover {
-  background-color: #E97451;
-  color: white;
-}
-
-svg.logout {
-  width: 50px;
-  height: 50px;
+svg {
   color: #efcca6;
-  margin-left: 10px;
+  margin-left: 30px;
   cursor: pointer;
 }
-svg.logout:hover {
+svg:hover {
   color: #E97451;
+}
+svg:active{
+  transform: translate(2px, 2px);
+}
+
+#logout-svg{
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+#about-svg{
+  font-size: 29px;
+  margin-right: 10px;
+}
+
+#home-svg{
+  font-size: 32px;
+  margin-left: 70px;
+}
+
+#history-svg {
+  font-size: 30px;
 }
 
 button:active {
@@ -54,8 +64,13 @@ button:active {
 
 .username {
   margin: 10px;
-  color: #efcca6;
-  font-size: 20px;
+  background-color: #efcca6;
+  font-size: 17px;
+  font-weight: 500;
+  color: #422800;
+  padding: 3px 10px;
+  border: 2px solid #422800;
+  border-radius: 25px;
 }
 
 div .navbar {

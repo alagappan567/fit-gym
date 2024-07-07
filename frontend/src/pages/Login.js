@@ -21,11 +21,13 @@ const Login = () => {
           <p className="welmsg">welcome to</p>
           <img src={fitlogoIcon} alt="logo" className="welcomelogo"></img>
           <p className="about-msg">
-            <span style={{ color: "#E97451", fontWeight: "500"}}>fit</span>
-            <span style={{ color: "#2aa9bf", fontWeight: "500" }}>Amigo</span> is your ultimate
-            companion to calculate calories burned during workouts and
-            conveniently save your fitness records for tracking progress over
-            time.
+            <span style={{ color: "#E97451", fontWeight: "500" }}>fit</span>
+            <span style={{ color: "#2aa9bf", fontWeight: "500" }}>
+              Amigo
+            </span>{" "}
+            is your ultimate companion to calculate calories burned during
+            workouts and conveniently save your fitness records for tracking
+            progress over time.
           </p>
         </div>
         <div className="login-container">
@@ -62,9 +64,9 @@ const Login = () => {
                 Signup&gt;
               </Link>
             </div>
+            {error && <div className="error">{error}</div>}
           </div>
           <div className="circle circle-two"></div>
-          {error && <div className="error">{error}</div>}
         </div>
         <div className="theme-btn-container"></div>
       </section>

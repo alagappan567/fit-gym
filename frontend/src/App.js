@@ -4,18 +4,17 @@ import { useAuthContext } from "./hooks/useAuthContext";
 //Indivudual route component to create a single route
 //pages and componenets
 import Home from "./pages/Home";
-
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import History from "./components/History";
+import About from "./components/About";
 
 function App() {
   const { user } = useAuthContext();
   return (
     <div className="App">
       <BrowserRouter>
-
-        <div >
+        <div>
           <Routes>
             <Route
               path="/"
@@ -32,6 +31,10 @@ function App() {
             <Route
               path="/history"
               element={user ? <History /> : <Navigate to="/login" />}
+            ></Route>
+            <Route
+              path="/about"
+              element={user ? <About /> : <Navigate to="/login" />}
             ></Route>
           </Routes>
         </div>

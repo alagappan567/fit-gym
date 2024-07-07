@@ -17,9 +17,10 @@ code {
 /* layout */
 
 html {
-    scroll-behavior: smooth;
-    height: 100%;
-    background-color: #1a1a2e;
+  scroll-behavior: smooth;
+  height: 100%;
+  background-color: #1a1a2e;
+  z-index: 1;
 }
 
 .App {

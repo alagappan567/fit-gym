@@ -35,23 +35,25 @@ const History = () => {
   return (
     <div>
       <Navbar />
-      <div className="history">
-        <h1 className="opacity">Your Workout Records</h1>
-        <div className="workouts">
-          {workouts && workouts.length > 0 ? (
-            workouts.map((workout) => (
-              <WorkDetails key={workout._id} workout={workout} />
-            ))
-          ) : (
-            <div>
-              <p className="no-history">
-                You have no workout records.
-                <Link to="/" id="add">
-                  <button id="history-btn"> Click to add</button>
-                </Link>
-              </p>
-            </div>
-          )}
+      <div className="historybody">
+        <div className="work-container" id="history">
+          <h1 className="opacity">Your Workout Records</h1>
+          <div className="workouts">
+            {workouts && workouts.length > 0 ? (
+              workouts.map((workout) => (
+                <WorkDetails key={workout._id} workout={workout} />
+              ))
+            ) : (
+              <div>
+                <p className="no-history">
+                  You have no workout records.
+                  <Link to="/" id="add">
+                    <button id="history-btn">Click to add </button>
+                  </Link>
+                </p>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>
