@@ -33,11 +33,10 @@ svg:active{
 
 #logout-svg{
   font-size: 32px;
-  margin-bottom: 8px;
 }
 
 #about-svg{
-  font-size: 29px;
+  font-size: 30px;
   margin-right: 10px;
 }
 
@@ -63,14 +62,15 @@ button:active {
 }
 
 .username {
-  margin: 10px;
   background-color: #efcca6;
   font-size: 17px;
   font-weight: 500;
   color: #422800;
-  padding: 3px 10px;
+  padding: 4px 10px;
+  padding-bottom: 0;
   border: 2px solid #422800;
   border-radius: 25px;
+  margin-bottom: 3px;
 }
 
 div .navbar {
@@ -92,5 +92,5 @@ div .navbar {
 .nav-btns {
   display: flex;
   justify-content: center; 
-  align-items: center;
+
 }
