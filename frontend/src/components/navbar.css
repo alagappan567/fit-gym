@@ -18,35 +18,66 @@
   margin-left: 10px;
 }
 
-
-svg {
-  color: #efcca6;
-  margin-left: 30px;
-  cursor: pointer;
-}
-svg:hover {
+#home-svg:hover {
   color: #E97451;
 }
-svg:active{
+
+#history-svg:hover {
+  color: #E97451;
+}
+
+#logout-svg:hover {
+  color: #E97451;
+}
+#about-svg:hover {
+  color: #E97451;
+}
+
+#home-svg:active{
+  transform: translate(2px, 2px);
+}
+
+#history-svg:active{
+  transform: translate(2px, 2px);
+}
+
+#logout-svg:active{
+  transform: translate(2px, 2px);
+}
+
+#about-svg:active{
   transform: translate(2px, 2px);
 }
 
 #logout-svg{
+  color: #efcca6;
+  margin-left: 30px;
+  cursor: pointer;
   font-size: 32px;
-}
-
-#about-svg{
-  font-size: 30px;
   margin-right: 10px;
 }
 
+#about-svg{
+  color: #efcca6;
+  margin-left: 30px;
+  cursor: pointer;
+  font-size: 32px;
+
+}
+
 #home-svg{
+  color: #efcca6;
+  margin-left: 30px;
+  cursor: pointer;
   font-size: 32px;
   margin-left: 70px;
 }
 
-#history-svg {
-  font-size: 30px;
+#history-svg {  
+  color: #efcca6;
+  margin-left: 30px;
+  cursor: pointer;
+  font-size: 29px;
 }
 
 button:active {
@@ -94,3 +125,4 @@ div .navbar {
   justify-content: center; 
 
 }
+

@@ -5,7 +5,7 @@ import { useAuthContext } from "../hooks/useAuthContext";
 import fitlogoIcon from "../assets/fitlogo.png";
 import { RiLogoutBoxRFill } from "react-icons/ri";
 import { FaHome } from "react-icons/fa";
-import { BsExclamationCircle } from "react-icons/bs";
+import { RiTeamFill } from "react-icons/ri";
 import { FaHistory } from "react-icons/fa";
 import Modal from "./Modal";
 import "./navbar.css";
@@ -39,12 +39,12 @@ const Navbar = () => {
               <FaHome id="home-svg" />
             </Link>
             <Link to="/history">
-              <FaHistory id="history-svg"/>
+              <FaHistory id="history-svg" />
+            </Link>
+            <Link to="/about">
+              <RiTeamFill id="about-svg" />
             </Link>
             <RiLogoutBoxRFill onClick={handleLogoutClick} id="logout-svg" />
-            <Link to="/about">
-              <BsExclamationCircle id="about-svg" />
-            </Link>
           </div>
         )}
       </nav>

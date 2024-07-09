@@ -44,7 +44,7 @@ p {
 }
 
 .delete-btn:hover {
-  color: rgb(235, 27, 27);
+  color: rgb(250, 0, 0);
 }
 
 .workouts {
@@ -55,3 +55,4 @@ p {
   justify-content: center;
   align-items: center;
 }
+

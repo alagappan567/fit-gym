@@ -55,13 +55,13 @@ const WorkDetails = ({ workout }) => {
           <strong>{workout.workoutType}</strong>
         </p>
         <p>
-          <strong><FaClock /> </strong> {workout.duration} minutes
+          <strong><FaClock className="duration-svg"/> </strong> {workout.duration} minutes
         </p>
         <p>
           <strong>Intensity:</strong> {getLabel(workout.intensity)}
         </p>
         <p>
-          <strong> <FaRegCalendarAlt /> </strong> {formattedDate}
+          <strong> <FaRegCalendarAlt className="date-svg"/> </strong> {formattedDate}
         </p>
         <p>
           <strong>Burned:</strong> {workout.caloriesBurned || "N/A"} Calories 🔥
