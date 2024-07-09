@@ -110,7 +110,7 @@ const About = () => {
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.instagram.com/kaviyabharathii/" class="instagram" target="_blank" rel="noopener noreferrer">
+                  <a href="https://www.instagram.com/_x_ntony_16/" class="instagram" target="_blank" rel="noopener noreferrer">
                     <FaInstagram />
                   </a>
                 </li>
