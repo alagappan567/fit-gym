@@ -35,3 +35,5 @@ mongoose
   .catch((error) => {
     console.error(error);
   });
+
+module.exports = app;
