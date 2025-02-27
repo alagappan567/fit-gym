@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors"); // Import the cors package
 require("dotenv").config(); // Load environment variables
 const mongoose = require("mongoose");
 
@@ -18,6 +19,13 @@ app.use((req, res, next) => {
   console.log(`Body: ${JSON.stringify(req.body)}`);
   next();
 });
+
+app.use(
+  cors({
+    origin: ["*", "https://fitamigo.vercel.app","http://localhost:3000","http://localhost:3001"],
+    credentials: true,
+  })
+);
 
 // Register routes
 app.use("/api/workouts", workoutroutes); // Attach workout routes

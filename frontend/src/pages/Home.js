@@ -2,10 +2,6 @@ import { useEffect } from "react";
 import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
 import { useAuthContext } from "../hooks/useAuthContext";
 
-// const URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=${units}`;
-//   const data = await fetch(URL)
-//     .then((res) => res.json())
-//     .then((data) => data);
 
 //components
 import WorkoutForm from "../components/WorkoutForm";
@@ -17,7 +13,7 @@ const Home = () => {
   // const [workouts, setworkouts] = useState(null);
   useEffect(() => {
     const fetchWorkouts = async () => {
-      const response = await fetch("/api/workouts", {
+      const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/api/workouts`, {
         headers: {
           Authorization: `Bearer ${user.token}`,
         },
