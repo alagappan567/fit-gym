@@ -1,13 +1,17 @@
 const express = require("express");
+const { loginUser, signupUser, getAllUsers, updateUserRole, deleteUser } = require("../controllers/userController");
+const requireAuth = require("../middleware/requireAuth");
 
-//controller function
-const { signupUser, loginUser } = require("../controllers/userController");
 const router = express.Router();
 
-//login route
+// Auth routes
 router.post("/login", loginUser);
-
-//signup route
 router.post("/signup", signupUser);
+
+// Admin routes - protected by requireAuth
+router.use(requireAuth);
+router.get("/all", getAllUsers);
+router.patch("/:userId/role", updateUserRole);
+router.delete("/:userId", deleteUser);
 
 module.exports = router;

@@ -1,0 +1,64 @@
+.food-log-form {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.food-log-form h2 {
+  text-align: center;
+  color: #422800;
+  margin-bottom: 20px;
+}
+
+.food-log-form form div {
+  margin-bottom: 15px;
+}
+
+.food-log-form label {
+  display: block;
+  margin-bottom: 5px;
+  color: #422800;
+  font-weight: bold;
+}
+
+.food-log-form input,
+.food-log-form select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.food-log-form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #efcca6;
+  border: 2px solid #422800;
+  border-radius: 30px;
+  color: #422800;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.food-log-form button:hover {
+  background-color: #E97451;
+  color: white;
+}
+
+.food-log-form .error {
+  color: #ff0033;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.food-log-form .success {
+  color: #4CAF50;
+  margin-top: 10px;
+  text-align: center;
+}

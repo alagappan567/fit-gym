@@ -18,10 +18,15 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
+  role: {
+    type: String,
+    enum: ['user', 'admin'],
+    default: 'user'
+  }
 });
 
 //static signup method
-userSchema.statics.signup = async function (username, email, password) {
+userSchema.statics.signup = async function (username, email, password, role) {
   //validation
   if (!username || !email || !password) {
     throw Error("All fields must be filled");
@@ -46,7 +51,12 @@ userSchema.statics.signup = async function (username, email, password) {
   const salt = await bcrypt.genSalt(10);
   const hash = await bcrypt.hash(password, salt);
 
-  const user = await this.create({ username, email, password: hash });
+  const user = await this.create({ 
+    username, 
+    email, 
+    password: hash,
+    role: role || 'user' // Set role, default to 'user' if not provided
+  });
   return user;
 };
 

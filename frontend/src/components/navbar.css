@@ -1,5 +1,4 @@
-
- button {
+button {
   background-color: #efcca6;
   border: 2px solid #422800;
   border-radius: 30px;
@@ -29,27 +28,44 @@
 #logout-svg:hover {
   color: #E97451;
 }
+
 #about-svg:hover {
   color: #E97451;
 }
 
-#home-svg:active{
+#meal-history-svg:hover {
+  color: #E97451;
+}
+
+#admin-svg:hover {
+  color: #E97451;
+}
+
+#home-svg:active {
   transform: translate(2px, 2px);
 }
 
-#history-svg:active{
+#history-svg:active {
   transform: translate(2px, 2px);
 }
 
-#logout-svg:active{
+#logout-svg:active {
   transform: translate(2px, 2px);
 }
 
-#about-svg:active{
+#about-svg:active {
   transform: translate(2px, 2px);
 }
 
-#logout-svg{
+#meal-history-svg:active {
+  transform: translate(2px, 2px);
+}
+
+#admin-svg:active {
+  transform: translate(2px, 2px);
+}
+
+#logout-svg {
   color: #efcca6;
   margin-left: 30px;
   cursor: pointer;
@@ -57,15 +73,14 @@
   margin-right: 10px;
 }
 
-#about-svg{
+#about-svg {
   color: #efcca6;
   margin-left: 30px;
   cursor: pointer;
   font-size: 32px;
-
 }
 
-#home-svg{
+#home-svg {
   color: #efcca6;
   margin-left: 30px;
   cursor: pointer;
@@ -73,11 +88,25 @@
   margin-left: 70px;
 }
 
-#history-svg {  
+#history-svg {
   color: #efcca6;
   margin-left: 30px;
   cursor: pointer;
   font-size: 29px;
+}
+
+#meal-history-svg {
+  color: #efcca6;
+  margin-left: 30px;
+  cursor: pointer;
+  font-size: 29px;
+}
+
+#admin-svg {
+  color: #efcca6;
+  cursor: pointer;
+  font-size: 29px;
+  margin-left: 10px;
 }
 
 button:active {
@@ -119,10 +148,8 @@ div .navbar {
   margin-top: 7px;
 }
 
-
 .nav-btns {
   display: flex;
-  justify-content: center; 
-
+  justify-content: center;
 }
 

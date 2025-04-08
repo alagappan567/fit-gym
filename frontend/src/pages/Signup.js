@@ -8,11 +8,12 @@ const Signup = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [role, setRole] = useState("user");
   const { signup, error, isLoading } = useSignup();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await signup(username, email, password);
+    await signup(username, email, password, role);
   };
 
   return (
@@ -59,6 +60,13 @@ const Signup = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 value={password}
               ></input>
+              <div className="role-selector">
+                <label>Account Type:</label>
+                <select value={role} onChange={(e) => setRole(e.target.value)}>
+                  <option value="user">Normal User</option>
+                  <option value="admin">Admin</option>
+                </select>
+              </div>
               <button className="opacity" disabled={isLoading}>
                 SUBMIT
               </button>

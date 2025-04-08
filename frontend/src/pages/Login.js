@@ -8,15 +8,17 @@ import "./Login.css";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [role, setRole] = useState("user"); // Add role state
   const { login, error, isLoading } = useLogin();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // console.log(email, password);
-    await login(email, password);
+    await login(email, password, role);
   };
+
   return (
     <div className="body">
-      <section className="container" onSubmit={handleSubmit}>
+      <section className="container">
         <div className="welcome">
           <p className="welmsg">welcome to</p>
           <img src={fitlogoIcon} alt="logo" className="welcomelogo"></img>
@@ -39,21 +41,43 @@ const Login = () => {
               className="illustration"
             />
             <h1 className="opacity">LOG IN</h1>
-            <form>
+            <form onSubmit={handleSubmit}>
               <input
                 className="email-input"
                 type="email"
                 onChange={(e) => setEmail(e.target.value)}
                 value={email}
                 placeholder="EMAIL"
-              ></input>
+              />
               <input
                 type="password"
                 className="password-input"
                 onChange={(e) => setPassword(e.target.value)}
                 value={password}
                 placeholder="PASSWORD"
-              ></input>
+              />
+              <div className="role-selector">
+                <label>
+                  <input
+                    type="radio"
+                    name="role"
+                    value="user"
+                    checked={role === "user"}
+                    onChange={(e) => setRole(e.target.value)}
+                  />
+                  Normal User
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    name="role"
+                    value="admin"
+                    checked={role === "admin"}
+                    onChange={(e) => setRole(e.target.value)}
+                  />
+                  Admin
+                </label>
+              </div>
               <button className="opacity" disabled={isLoading}>
                 SUBMIT
               </button>

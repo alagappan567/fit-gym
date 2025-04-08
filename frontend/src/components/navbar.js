@@ -4,9 +4,8 @@ import { useLogout } from "../hooks/useLogout";
 import { useAuthContext } from "../hooks/useAuthContext";
 import fitlogoIcon from "../assets/fitlogo.png";
 import { RiLogoutBoxRFill } from "react-icons/ri";
-import { FaHome } from "react-icons/fa";
-import { RiTeamFill } from "react-icons/ri";
-import { FaHistory } from "react-icons/fa";
+import { FaHome, FaHistory } from "react-icons/fa";
+import { RiTeamFill, RiAdminLine } from "react-icons/ri";
 import Modal from "./Modal";
 import "./navbar.css";
 
@@ -43,6 +42,17 @@ const Navbar = () => {
             </Link>
             <Link to="/about">
               <RiTeamFill id="about-svg" />
+            </Link>
+            {user.role === 'admin' && (
+              <Link to="/admin">
+                <RiAdminLine id="admin-svg" />
+              </Link>
+            )}
+            <Link to="/log-meal">
+              <button className="nav-btn">Log Meal</button>
+            </Link>
+            <Link to="/calories-left">
+              <button className="nav-btn">Calories Left</button>
             </Link>
             <RiLogoutBoxRFill onClick={handleLogoutClick} id="logout-svg" />
           </div>

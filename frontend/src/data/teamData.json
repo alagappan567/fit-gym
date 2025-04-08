@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "name": "PRATHEEP KUMAR",
+    "role": "Web Developer",
+    "image": "pratheep.jpg",
+    "contacts": [
+      {
+        "type": "email",
+        "link": "mailto:kattavamsikrishna2002@gmail.com",
+        "icon": "mail"
+      },
+      {
+        "type": "github",
+        "link": "https://www.github.com/Vamsi971V/",
+        "icon": "github"
+      },
+      {
+        "type": "instagram",
+        "link": "https://www.instagram.com/vamsikatta10/",
+        "icon": "instagram"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "ALAGAPPAN SP",
+    "role": "Web Developer",
+    "image": "alagappan.jpg",
+    "contacts": [
+      {
+        "type": "email",
+        "link": "mailto:kaviyabharathi79@gmail.com",
+        "icon": "mail"
+      },
+      {
+        "type": "github",
+        "link": "https://www.github.com/kaviyabharathi79/",
+        "icon": "github"
+      },
+      {
+        "type": "instagram",
+        "link": "https://www.instagram.com/kaviyabharathii/",
+        "icon": "instagram"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "vigneshwari",
+    "role": "Web Developer",
+    "image": "vigneshwari.jpg",
+    "contacts": [
+      {
+        "type": "email",
+        "link": "mailto:yuvashreed3@gmail.com",
+        "icon": "mail"
+      },
+      {
+        "type": "github",
+        "link": "https://github.com/Yuvashree-2003",
+        "icon": "github"
+      }
+    ]
+  }
+]

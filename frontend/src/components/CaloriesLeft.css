@@ -1,0 +1,39 @@
+.calories-left-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.calories-left-container h2 {
+  color: #422800;
+  margin-bottom: 20px;
+}
+
+.calories-summary {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #efcca6;
+  border-radius: 8px;
+}
+
+.calories-summary p {
+  font-size: 18px;
+  color: #422800;
+  margin-bottom: 10px;
+}
+
+.calories-summary h3 {
+  font-size: 24px;
+  color: #422800;
+  margin-top: 15px;
+}
+
+.error {
+  color: #ff0033;
+  margin-top: 10px;
+  text-align: center;
+}

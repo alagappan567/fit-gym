@@ -1,13 +1,13 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"; //Browerser router wraps everywhere we are going to use our router
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useAuthContext } from "./hooks/useAuthContext";
-//Routes component wraps all the indivudual routes
-//Indivudual route component to create a single route
-//pages and componenets
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import History from "./components/History";
 import About from "./components/About";
+import MealSelector from "./components/MealSelector";
+import CaloriesLeft from "./components/CaloriesLeft";
+import AdminDashboard from "./components/AdminDashboard";
 
 function App() {
   const { user } = useAuthContext();
@@ -35,6 +35,24 @@ function App() {
             <Route
               path="/about"
               element={user ? <About /> : <Navigate to="/login" />}
+            ></Route>
+            <Route
+              path="/log-meal"
+              element={user ? <MealSelector /> : <Navigate to="/login" />}
+            ></Route>
+            <Route
+              path="/calories-left"
+              element={user ? <CaloriesLeft /> : <Navigate to="/login" />}
+            ></Route>
+            <Route
+              path="/admin"
+              element={
+                user?.role === 'admin' ? (
+                  <AdminDashboard />
+                ) : (
+                  <Navigate to="/" />
+                )
+              }
             ></Route>
           </Routes>
         </div>
