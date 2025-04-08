@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useAuthContext } from '../hooks/useAuthContext';
+import { FaTrash } from 'react-icons/fa';
 import Navbar from './navbar';
 import './AdminDashboard.css';
 
@@ -8,6 +9,8 @@ const AdminDashboard = () => {
   const { user } = useAuthContext();
   const [error, setError] = useState(null);
   const [successMessage, setSuccessMessage] = useState('');
+  const [selectedUser, setSelectedUser] = useState(null);
+  const [showConfirmation, setShowConfirmation] = useState(false);
 
   useEffect(() => {
     fetchUsers();
@@ -57,22 +60,26 @@ const AdminDashboard = () => {
     }
   };
 
-  const handleDeleteUser = async (userId) => {
-    if (!window.confirm('Are you sure you want to delete this user?')) {
-      return;
-    }
+  const handleDeleteClick = (user) => {
+    setSelectedUser(user);
+    setShowConfirmation(true);
+  };
 
+  const handleConfirmDelete = async () => {
+    if (!selectedUser) return;
+    
     try {
-      const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/api/user/${userId}`, {
+      const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/api/user/${selectedUser._id}`, {
         method: 'DELETE',
         headers: {
+          'Content-Type': 'application/json',
           'Authorization': `Bearer ${user.token}`
         }
       });
 
       if (response.ok) {
-        setUsers(users.filter(u => u._id !== userId));
-        setSuccessMessage('User deleted successfully');
+        setUsers(users.filter(u => u._id !== selectedUser._id));
+        setSuccessMessage(`User ${selectedUser.username} deleted successfully`);
         setTimeout(() => setSuccessMessage(''), 3000);
       } else {
         const json = await response.json();
@@ -80,6 +87,9 @@ const AdminDashboard = () => {
       }
     } catch (err) {
       setError('Failed to delete user');
+    } finally {
+      setShowConfirmation(false);
+      setSelectedUser(null);
     }
   };
 
@@ -127,7 +137,7 @@ const AdminDashboard = () => {
             </thead>
             <tbody>
               {users.map((u) => (
-                <tr key={u._id}>
+                <tr key={u._id} className={`user-row ${selectedUser?._id === u._id ? 'selected' : ''}`}>
                   <td>{u.username}</td>
                   <td>{u.email}</td>
                   <td>
@@ -135,18 +145,20 @@ const AdminDashboard = () => {
                       value={u.role}
                       onChange={(e) => handleRoleChange(u._id, e.target.value)}
                       disabled={u._id === user._id}
+                      className="role-select"
                     >
                       <option value="user">User</option>
                       <option value="admin">Admin</option>
                     </select>
                   </td>
-                  <td>
+                  <td className="actions-cell">
                     {u._id !== user._id && (
                       <button 
                         className="delete-btn"
-                        onClick={() => handleDeleteUser(u._id)}
+                        onClick={() => handleDeleteClick(u)}
+                        title={`Delete user ${u.username}`}
                       >
-                        Delete
+                        <FaTrash />
                       </button>
                     )}
                   </td>
@@ -155,6 +167,28 @@ const AdminDashboard = () => {
             </tbody>
           </table>
         </div>
+
+        {showConfirmation && selectedUser && (
+          <div className="confirmation-modal">
+            <div className="modal-content">
+              <h3>Confirm Delete</h3>
+              <p>Are you sure you want to delete user:</p>
+              <div className="user-details">
+                <p><strong>Username:</strong> {selectedUser.username}</p>
+                <p><strong>Email:</strong> {selectedUser.email}</p>
+                <p><strong>Role:</strong> {selectedUser.role}</p>
+              </div>
+              <div className="modal-actions">
+                <button className="cancel-btn" onClick={() => setShowConfirmation(false)}>
+                  Cancel
+                </button>
+                <button className="confirm-delete-btn" onClick={handleConfirmDelete}>
+                  Delete User
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

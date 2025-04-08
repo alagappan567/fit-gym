@@ -114,12 +114,11 @@ const deleteUser = async (req, res) => {
       return res.status(400).json({ error: "Cannot delete your own account" });
     }
 
-    const user = await User.findById(userId);
-    if (!user) {
+    const deletedUser = await User.findByIdAndDelete(userId);
+    if (!deletedUser) {
       return res.status(404).json({ error: "User not found" });
     }
 
-    await user.remove();
     res.status(200).json({ message: "User deleted successfully" });
   } catch (error) {
     res.status(400).json({ error: error.message });

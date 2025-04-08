@@ -82,18 +82,124 @@
   cursor: not-allowed;
 }
 
+.user-row {
+  transition: background-color 0.2s ease;
+}
+
+.user-row:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.user-row.selected {
+  background-color: rgba(231, 76, 60, 0.1);
+}
+
+.actions-cell {
+  width: 100px;
+  text-align: center !important;
+}
+
 .delete-btn {
   background-color: #e74c3c;
   color: white;
   border: none;
-  padding: 6px 12px;
+  padding: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+}
+
+.delete-btn:hover {
+  background-color: #c0392b;
+  transform: scale(1.05);
+}
+
+.delete-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.confirmation-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.modal-content h3 {
+  color: #422800;
+  margin-bottom: 1rem;
+}
+
+.user-details {
+  background-color: #f8f9fa;
+  padding: 1rem;
+  border-radius: 4px;
+  margin: 1rem 0;
+}
+
+.user-details p {
+  margin: 0.5rem 0;
+  color: #422800;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.cancel-btn {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.2s;
 }
 
-.delete-btn:hover {
+.confirm-delete-btn {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.cancel-btn:hover {
+  background-color: #5a6268;
+}
+
+.confirm-delete-btn:hover {
   background-color: #c0392b;
+}
+
+.role-select {
+  width: 100px;
 }
 
 .success {
