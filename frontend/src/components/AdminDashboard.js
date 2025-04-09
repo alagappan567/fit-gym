@@ -60,8 +60,11 @@ const AdminDashboard = () => {
     }
   };
 
-  const handleDeleteClick = (user) => {
-    setSelectedUser(user);
+  const handleDeleteClick = () => {
+    if (!selectedUser) {
+      setError('Please select a user to delete');
+      return;
+    }
     setShowConfirmation(true);
   };
 
@@ -72,7 +75,6 @@ const AdminDashboard = () => {
       const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/api/user/${selectedUser._id}`, {
         method: 'DELETE',
         headers: {
-          'Content-Type': 'application/json',
           'Authorization': `Bearer ${user.token}`
         }
       });
@@ -126,13 +128,38 @@ const AdminDashboard = () => {
 
         <div className="users-list">
           <h3>All Users</h3>
+          <div className="delete-user-section">
+            <select 
+              value={selectedUser?._id || ''} 
+              onChange={(e) => {
+                const selected = users.find(u => u._id === e.target.value);
+                setSelectedUser(selected || null);
+              }}
+              className="user-select"
+            >
+              <option value="">Select a user to delete</option>
+              {users.filter(u => u._id !== user._id).map(u => (
+                <option key={u._id} value={u._id}>
+                  {u.username} ({u.email})
+                </option>
+              ))}
+            </select>
+            <button 
+              className="delete-btn"
+              onClick={handleDeleteClick}
+              disabled={!selectedUser}
+              title={!selectedUser ? "Select a user to delete" : `Delete user ${selectedUser.username}`}
+            >
+              <FaTrash />
+            </button>
+          </div>
+
           <table>
             <thead>
               <tr>
                 <th>Username</th>
                 <th>Email</th>
                 <th>Role</th>
-                <th>Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -150,17 +177,6 @@ const AdminDashboard = () => {
                       <option value="user">User</option>
                       <option value="admin">Admin</option>
                     </select>
-                  </td>
-                  <td className="actions-cell">
-                    {u._id !== user._id && (
-                      <button 
-                        className="delete-btn"
-                        onClick={() => handleDeleteClick(u)}
-                        title={`Delete user ${u.username}`}
-                      >
-                        <FaTrash />
-                      </button>
-                    )}
                   </td>
                 </tr>
               ))}
